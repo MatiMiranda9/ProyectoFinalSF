@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: ites
+      DB_PASSWORD: ites
+      DB_NAME: formulario
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: formulario
+      MYSQL_USER: ites
+      MYSQL_PASSWORD: ites
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_USER: ites
+      PMA_PASSWORD: ites
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "8081:80"

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css">  
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <img src="imagenes/informatica.jpg" alt="Imagen destacada" class="featured-image">
+        <h1>Proyecto Final Software Factory</h1>
+        <p>Este proyecto consiste en el desarrollo de una página web estática utilizando HTML y CSS, con un backend que procesa solicitudes de suscripción y consultas de clientes. Los datos ingresados por los usuarios se almacenan en una base de datos MySQL, y la gestión de esta base de datos se realiza a través de phpMyAdmin. Todo el proyecto está contenerizado utilizando Docker, facilitando su despliegue y ejecución en diferentes entornos.</p>
+    </section>
+
+    <section id="services">
+        <h2>Servicios</h2>
+        <ul>
+            <li>Backend</li>
+            <li>Database</li>
+            <li>Dockerizacion</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Suscripción / Contacto</h2>
+        <form action="http://localhost:3000/submit-client-data" method="POST">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required><br>
+            
+            <label for="email">Correo:</label>
+            <input type="email" id="email" name="email" required><br>
+            
+            <label for="phone">Teléfono:</label>
+            <input type="tel" id="phone" name="phone"><br>
+            
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" required></textarea><br>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p><i class="fas fa-envelope"></i> Contacto: ites12@gmail.com</p>
+        <p>Síguenos en nuestras redes sociales</p>
+        <p><i class="fas fa-map-marker-alt"></i> Santa Rosa - La Pampa - Argentina</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
